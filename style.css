@@ -85,6 +85,7 @@ that are children of an element with the class .mynavbar.
 
 .mynavbar .nav-link {
   text-transform: uppercase;
+  margin: 0 1.5rem; /* ← este es el espaciado entre los botones */
 }
 
 .home {
@@ -393,6 +394,25 @@ footer li {
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Separación más amplia en la sección hero */
+
+.hero main h1 {
+  margin-bottom: 3rem; /* más separación debajo del título */
+}
+
+.hero main p {
+  margin-bottom: 2.5rem; /* más separación debajo del subtítulo */
+}
+
+.simply-countdown {
+  margin-bottom: 3.5rem; /* más separación debajo del contador */
+}
+
+.hero main .btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
 }
 
 /* Media Query */

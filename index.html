@@ -26,19 +26,17 @@
   <body>
     <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
       <main>
-        <h4>To <span> Father/Mother/Brother</span></h4>
-        <h1>Husband & Wife</h1>
-        <p>Will hold a wedding reception in:</p>
+        <h1>Laura & Adrián</h1>
+        <p>Cuenta atrás para la ceremonia:</p>
         <!-- Letak sini sbb nk display countdown sini -->
         <div class="simply-countdown"></div>
-        <a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()">See Invitation</a>
+<a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()">Ver invitación</a>
       </main>
     </section>
 
     <!-- OffCanvas NavBar-->
     <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
       <div class="container">
-        <a class="navbar-brand" href="#">Zul</a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,13 +46,14 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
-            <div class="navbar-nav ms-auto">
-              <a class="nav-link" href="#home">Home</a>
-              <a class="nav-link" href="#info">Info</a>
-              <a class="nav-link" href="#story">Story</a>
-              <a class="nav-link" href="#gallery">Gallery</a>
-              <a class="nav-link" href="#rsvp">RSVP</a>
-              <a class="nav-link" href="#gifts">Gifts</a>
+ <div class="navbar-nav ms-auto">
+  <a class="nav-link nav-spacing" href="#home">Inicio</a>
+  <a class="nav-link nav-spacing" href="#info">Lugar y hora</a>
+  <a class="nav-link nav-spacing" href="#story">Cronología</a>
+  <a class="nav-link nav-spacing" href="#gallery">Galería</a>
+  <a class="nav-link nav-spacing" href="#rsvp">Confirmación asistencia</a>
+  <a class="nav-link nav-spacing" href="#gifts">Añade tu música</a>
+</div>
             </div>
           </div>
         </div>
@@ -72,45 +71,7 @@
           </div>
         </div>
 
-        <div class="row couple">
-          <div class="col-lg-6">
-            <div class="row">
-              <div class="col-8 text-end">
-                <h3>Husband</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque praesentium aut ipsa perferendis, incidunt soluta?</p>
-                <p>
-                  Putra from father. Lorem <br />
-                  & <br />
-                  mother Ipsum
-                </p>
-              </div>
-              <div class="col-4">
-                <img src="img/husband.jpeg" alt="Husband" class="img-responsive rounded-circle" />
-              </div>
-            </div>
-          </div>
-
-          <!-- Icon heart letak sini -->
-          <span class="heart"><i class="bi bi-heart-fill"></i></span>
-
-          <div class="col-lg-6">
-            <div class="row">
-              <div class="col-4">
-                <img src="img/wife.png" alt="Wife" class="img-responsive rounded-circle" />
-              </div>
-              <div class="col-8">
-                <h3>Wife</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque praesentium aut ipsa perferendis, incidunt soluta?</p>
-                <p>
-                  Putra from father. Ipsum <br />
-                  & <br />
-                  mather Lorem
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        
     </section>
 
     <!-- Info about perkahwinan -->
@@ -427,21 +388,28 @@
 
     <!-- Countdown tu set random sahaja -->
     <script>
-      simplyCountdown(".simply-countdown", {
-        year: 2024, // required
-        month: 9, // required
-        day: 25, // required
-        hours: 0, // Default is 0 [0-23] integer
-        words: {
-          //words displayed into the countdown
-          days: { singular: "day", plural: "days" },
-          hours: { singular: "hour", plural: "hours" },
-          minutes: { singular: "minute", plural: "minutes" },
-          seconds: { singular: "second", plural: "seconds" },
-        },
-        plural: true, //use plurals
-      });
-    </script>
+  simplyCountdown(".simply-countdown", {
+    year: 2025,
+    month: 10,
+    day: 11,
+    hours: 12,
+    minutes: 0,
+    seconds: 0,
+   words: {
+  days: { singular: "día", plural: "días" },
+  hours: { singular: "hora", plural: "horas" },
+  minutes: { singular: "minuto", plural: "minutos" },
+  seconds: { singular: "segundo", plural: "segundos" },
+},
+    plural: true,
+    zeroPad: false,
+    countUp: false,
+    inline: false,
+    enableUtc: false,
+    refresh: 1000,
+  });
+</script>
+
 
     <!-- Solve problem when the website change to mobile screen for NavBar -->
     <script>

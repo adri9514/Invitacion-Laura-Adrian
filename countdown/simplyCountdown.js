@@ -63,12 +63,13 @@ function _typeof(t) {
             hours: 12,
             minutes: 0,
             seconds: 0,
-            words: {
-                days: { singular: "day", plural: "days" },
-                hours: { singular: "hour", plural: "hours" },
-                minutes: { singular: "minute", plural: "minutes" },
-                seconds: { singular: "second", plural: "seconds" }
-            },
+         words: {
+  days: { singular: "día", plural: "días" },
+  hours: { singular: "hora", plural: "horas" },
+  minutes: { singular: "minuto", plural: "minutos" },
+  seconds: { singular: "segundo", plural: "segundos" },
+},
+
             plural: true,
             inline: false,
             enableUtc: false,
