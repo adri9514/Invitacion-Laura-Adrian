@@ -1,384 +1,502 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wedding Invitation</title>
-    <link rel="icon" href="https://www.svgrepo.com/show/214817/wedding-marry.svg" type="image/x-icon" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+<html lang="es">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wedding Invitation</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/214817/wedding-marry.svg" type="image/x-icon" />
 
-    <!-- SimplyCountdown.js -->
-    <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css" />
-<script src="countdown/simplyCountdown.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous" />
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-    <!-- CSS path -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
+  <!-- SimplyCountdown -->
+  <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css" />
+  <script src="countdown/simplyCountdown.js"></script>
 
-  <body>
-    <section id="hero" class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
-      <main>
-        <h1>Laura & Adrián</h1>
-        <p>Cuenta atrás para la ceremonia:</p>
-        <!-- Letak sini sbb nk display countdown sini -->
-        <div class="simply-countdown"></div>
-<a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()">Ver invitación</a>
-      </main>
-    </section>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 
-    <!-- OffCanvas NavBar-->
-    <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
-      <div class="container">
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Zul</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
- <div class="navbar-nav ms-auto">
-  <a class="nav-link nav-spacing" href="#home">Inicio</a>
-  <a class="nav-link nav-spacing" href="#info">Ubicación</a>
-  <a class="nav-link nav-spacing" href="#story">Cronología</a>
-  <a class="nav-link nav-spacing" href="#gallery">Galería</a>
-  <a class="nav-link nav-spacing" href="#rsvp">Confirmación asistencia</a>
-  <a class="nav-link nav-spacing" href="#gifts">Añade tu música</a>
-</div>
-            </div>
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <section id="hero"
+    class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
+    <main>
+      <h1>Laura & Adrián</h1>
+      <p>Cuenta atrás para la ceremonia:</p>
+      <div class="simply-countdown"></div>
+      <a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()">Ver invitación</a>
+    </main>
+  </section>
+
+  <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
+    <div class="container">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-label="Menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Zul</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link nav-spacing" href="#home">Inicio</a>
+            <a class="nav-link nav-spacing" href="#info">Ubicación</a>
+            <a class="nav-link nav-spacing" href="#story">Cronología</a>
+            <a class="nav-link nav-spacing" href="#gallery">Galería</a>
+            <a class="nav-link nav-spacing" href="#rsvp">Confirmación asistencia</a>
+            <a class="nav-link nav-spacing" href="#gifts">Añade tu música</a>
           </div>
         </div>
       </div>
-    </nav>
-
-    <!-- Home -->
-    <section id="home" class="home">
-      <div class="container">
-        <div class="row justify-content-center">
-  <div class="col-md-8 text-center">
-    <h2>¡Nos casamos!</h2>
-    <h3>11 de octubre de 2025 - Real Club Astur de Regatas de Gijón</h3>
-    <p>Tu presencia hará nuestro día todavía más especial.</p>
-  </div>
-</div>
-        
-    </section>
-<!-- Info: Lugar y hora -->
-<section id="info" class="info">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-10 text-center">
-        <h2>Ubicación</h2>
-        <p class="alamat">
-          Dirección: Real Club Astur de Regatas, Gijón <br />
-          Calle Claudio Alvargonzález, s/n, 33201 Gijón, Asturias
-        </p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.733796474304!2d-5.6631292!3d43.5467525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd36f0b92d8a4f17%3A0xb5c9ea60a853b164!2sReal%20Club%20Astur%20de%20Regatas!5e0!3m2!1ses!2ses!4v1715280400000!5m2!1ses!2ses"
-          width="100%"
-          height="250"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-<a href="https://www.google.com/maps/place/Real+Club+Astur+de+Regatas/@43.5469056,-5.6629721,15.75z/data=!4m6!3m5!1s0xd367c6700558f6d:0x970621b03d8f616f!8m2!3d43.5465917!4d-5.660362!16s%2Fg%2F11btmqyjvk?entry=ttu&g_ep=EgoyMDI1MDUwNi4wIKXMDSoASAFQAw%3D%3D"
-   target="_blank"
-   class="btn btn-light btn-sm my-3">
-   Ver ubicación en Google Maps
-</a>
-
-</section>
-
-
-   <!-- Story section -->
-<section id="story" class="story">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-10 text-center">
-        <h2>Cronología</h2>
-      </div>
     </div>
+  </nav>
 
-    <div class="row">
-      <div class="col">
-        <ul class="timeline">
-          <li>
-            <div class="timeline-image" style="background-image: url(https://picsum.photos/302/302)"></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h3>Recepción y Ceremonia</h3>
-                <span>12:00 h</span>
-              </div>
-              <div class="timeline-body">
-                <p>Comienza la celebración oficial del enlace.</p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-image" style="background-image: url(https://picsum.photos/300/300?2)"></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h3>Cóctel</h3>
-                <span>13:00 h</span>
-              </div>
-              <div class="timeline-body">
-                <p>Disfrutaremos de unos aperitivos con vistas al mar.</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="timeline-image" style="background-image: url(https://picsum.photos/301/301)"></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h3>Banquete</h3>
-                <span>15:00 h</span>
-              </div>
-              <div class="timeline-body">
-                <p>Una comida inolvidable con todos nuestros seres queridos.</p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-image" style="background-image: url(https://picsum.photos/300/300?3)"></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h3>Fiesta</h3>
-                <span>Hasta la 01:00 h</span>
-              </div>
-              <div class="timeline-body">
-                <p>Baile, copas y muchas sorpresas.</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="timeline-image" style="background-image: url(https://picsum.photos/300/300?4)"></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h3>Cimavilla</h3>
-                <span>Hasta que el cuerpo aguante</span>
-              </div>
-              <div class="timeline-body">
-                <p>Rematamos la noche por el barrio más mítico de Gijón.</p>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-   <!-- Gallery Section -->
-<section id="gallery" class="gallery">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8 col-10 text-center">
-        <h2>Galería</h2>
-      </div>
-    </div>
-  </div>
-</section>
-
-    <!-- Attendance form section -->
-    <section id="rsvp" class="rsvp">
-      <div class="container">
-        <div class="row justify-content-center">
-          <!-- Column for the title and description of the form -->
-          <div class="col-md-8 col-10 text-center">
-            <h2>Confirmation of Attendance</h2>
-            <p>Fill out the form below to confirm attendance.</p>
-          </div>
+  <!-- Home -->
+  <section id="home" class="home">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h2>¡Nos casamos!</h2>
+          <h3>11 de octubre de 2025 - Real Club Astur de Regatas de Gijón</h3>
+          <p>Tu presencia hará nuestro día todavía más especial.</p>
         </div>
+      </div>
 
-        <!-- Form for attendance confirmation -->
-        <!-- The form uses POST method to send data to a Google Script URL -->
-        <form class="row row-cols-md-auto g-3 align-items-center justify-content-center" method="POST" action="https://script.google.com/macros/s/AKfycbxccgG4ZLJLrIbxq-0r62c_cWDBEIWxwRkNIO3DHLKWkvXyj9ms_ShaBV1cEnOkpZIE/exec" id="my-form">
-          <!-- Input field for Name -->
-          <div class="col-12">
+  </section>
+  <!-- Info: Lugar y hora -->
+  <section id="info" class="info">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Ubicación</h2>
+          <p class="alamat">
+            Dirección: Real Club Astur de Regatas, Gijón <br />
+            Calle Claudio Alvargonzález, s/n, 33201 Gijón, Asturias
+          </p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.733796474304!2d-5.6631292!3d43.5467525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd36f0b92d8a4f17%3A0xb5c9ea60a853b164!2sReal%20Club%20Astur%20de%20Regatas!5e0!3m2!1ses!2ses!4v1715280400000!5m2!1ses!2ses"
+            width="100%" height="250" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a href="https://www.google.com/maps/place/Real+Club+Astur+de+Regatas/@43.5469056,-5.6629721,15.75z/data=!4m6!3m5!1s0xd367c6700558f6d:0x970621b03d8f616f!8m2!3d43.5465917!4d-5.660362!16s%2Fg%2F11btmqyjvk?entry=ttu&g_ep=EgoyMDI1MDUwNi4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank" class="btn btn-light btn-sm my-3">
+            Ver ubicación en Google Maps
+          </a>
+
+  </section>
+
+  <!-- Story section -->
+  <section id="story" class="story">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Cronología</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-image" style="background-image: url(https://picsum.photos/302/302)"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Recepción y Ceremonia</h3>
+                  <span>12:00 h</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Comienza la celebración oficial del enlace.</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image" style="background-image: url(https://picsum.photos/300/300?2)"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Cóctel</h3>
+                  <span>13:00 h</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Disfrutaremos de unos aperitivos con vistas al mar.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image" style="background-image: url(https://picsum.photos/301/301)"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Banquete</h3>
+                  <span>15:00 h</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Una comida inolvidable con todos nuestros seres queridos.</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image" style="background-image: url(https://picsum.photos/300/300?3)"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Fiesta</h3>
+                  <span>Hasta la 01:00 h</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Baile, copas y muchas sorpresas.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image" style="background-image: url(https://picsum.photos/300/300?4)"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Cimavilla</h3>
+                  <span>Hasta que el cuerpo aguante</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Rematamos la noche por el barrio más mítico de Gijón.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Galería</h2>
+          <p>Escanea este código QR para ver y subir tus fotos del gran día:</p>
+          <img src="img/qr-fotos.png" alt="Código QR para subir fotos" class="img-thumbnail" width="200" />
+          <p class="mt-3">
+            <a href="https://drive.google.com/drive/folders/12gjlnrf7P-SSk76IuN3AHqgeAA1Si9W-" target="_blank"
+              class="btn btn-light">O pulsa aquí si estás en el móvil</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp" class="rsvp">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Asistencia</h2>
+          <p>¿Nos acompañas?</p>
+
+          <!-- Botón con imagen de sobre que abre el formulario -->
+          <a href="#" data-bs-toggle="modal" data-bs-target="#asistenciaModal">
+            <img src="img/sobre-icono.png" alt="Confirmar asistencia" style="width: 120px; margin-top: 20px;" />
+            <div style="margin-top: 10px; font-style: italic; color: white;">Pulsa en el sobre</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal con el formulario -->
+  <div class="modal fade" id="asistenciaModal" tabindex="-1" aria-labelledby="asistenciaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="asistenciaModalLabel">Confirmar Asistencia</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario personalizado -->
+          <form id="formAsistencia">
             <div class="mb-3">
-              <label for="nama" class="form-label">Name</label>
-              <input type="text" class="form-control" id="nama" name="nama" />
+              <label class="form-label">¿Asistirás?</label><br />
+              <label>
+                <input type="radio" id="asistiraSi" name="asistiras" value="Sí" required /> Sí
+              </label>
+              <label>
+                <input type="radio" id="asistiraNo" name="asistiras" value="No" required /> No
+              </label>
             </div>
-          </div>
 
-          <!-- Input field for Total (number of attendees) -->
-          <div class="col-12">
             <div class="mb-3">
-              <label for="jumlah" class="form-label">Total</label>
-              <input type="number" class="form-control" id="jumlah" name="jumlah" min="1" max="5" length="1" value="1" />
-            </div>
-          </div>
-
-          <!-- Dropdown for confirming attendance status -->
-          <div class="col-12">
-            <div class="mb-3">
-              <label for="status" class="form-label">Confirm</label>
-              <select name="status" id="status" class="form-select">
-                <option selected>Choose</option>
-                <option value="Hadir">Attend</option>
-                <option value="Tidak Hadir">Absent</option>
+              <label for="numAdultos" class="form-label">Número de adultos</label>
+              <select id="numAdultos" name="numAdultos" class="form-select" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
               </select>
             </div>
-          </div>
 
-          <!-- Submit button to send the form data -->
-          <div class="col-12" style="margin-top: 35px">
-            <button class="btn btn-primary">Send</button>
-          </div>
-        </form>
-      </div>
-    </section>
-    <!-- Attendance form end -->
+            <div id="adultosContainer"></div>
 
-    <!-- Gift -->
-    <section id="gifts" class="gifts">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-10 text-center">
-            <span>EXPRESSION OF LOVE</span>
-            <h2>Send Gifts</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam iure perferendis provident ab aliquam nemo.</p>
-          </div>
-        </div>
+            <div class="mb-3">
+              <label for="comentario" class="form-label">¿Algún comentario adicional?</label>
+              <textarea class="form-control" id="comentario" name="comentario"
+                placeholder="Escribe aquí tu mensaje..."></textarea>
+            </div>
 
-        <div class="row justify-content-center text-center">
-          <div class="col-md-6">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <div class="fw-bold">CIMB BANK</div>
-                1234567 - ZULHUSNI
-              </li>
-              <li class="list-group-item">
-                <div class="fw-bold">QR Code</div>
-                <img src="https://img.freepik.com/premium-vector/qr-code-cartoon-character-doing-wave-hand-gesture-cute-design_152558-13573.jpg" alt="QR" class="img-thumbnail" width="150" />
-              </li>
-            </ul>
-          </div>
+            <button type="submit" class="btn btn-dark w-100">Clic aquí para enviar</button>
+          </form>
+
         </div>
       </div>
-    </section>
-    <!-- Gift End -->
+    </div>
+  </div>
 
-    <!-- Footer -->
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col text-center">
-            <small class="block">&copy; 2023 Zul Wedding. All Rights Reserved.</small>
-            <small class="block">Design by <a href="https://instagram.com/zlhsny._" target="_blank">@zulhusni</a>.</small>
+  </section>
+  <!-- Attendance form end -->
 
-            <ul class="mt-3">
-              <li>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="bi bi-youtube"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="bi bi-twitter"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-              </li>
-              <li>
-                <a href="#"><i class="bi bi-tiktok"></i></a>
-              </li>
-            </ul>
-          </div>
+  <!-- Sección de música -->
+  <section id="gifts" class="gifts">
+    <div class="container text-center">
+      <h2 style="font-size: 3rem; font-weight: bold; white-space: nowrap;">Toda boda necesita una fiesta</h2>
+      <p style="font-size: 1.25rem; font-style: italic; margin-top: 10px;">¿Qué canción no puede faltar esa noche?</p>
+
+      <!-- Botón que abre el modal de música -->
+      <a href="#" data-bs-toggle="modal" data-bs-target="#musicaModal">
+        <img src="img/icono-musica.png" alt="Recomienda canciones" style="width: 120px; margin-top: 20px;" />
+        <div style="margin-top: 10px; font-style: italic; color: black;">¡Recomienda canciones!</div>
+      </a>
+
+  </section>
+
+  <!-- Modal de Recomendación de Música -->
+  <div class="modal fade" id="musicaModal" tabindex="-1" aria-labelledby="musicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="musicaModalLabel">¡Recomienda canciones!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formMusica">
+            <div class="mb-3">
+              <label for="nombreMusica" class="form-label">Tu nombre</label>
+              <input type="text" class="form-control" id="nombreMusica" name="nombreMusica" required />
+            </div>
+            <div class="mb-3">
+              <label for="cancionMusica" class="form-label">¿Qué canción te gustaría que sonara?</label>
+              <input type="text" class="form-control" id="cancionMusica" name="cancionMusica" required />
+            </div>
+            <button type="submit" class="btn btn-dark w-100">Enviar sugerencia</button>
+          </form>
         </div>
       </div>
-    </footer>
-    <!-- Footer End -->
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- Columna izquierda: Contacto -->
+        <div class="col-md-6 text-start">
+          <h5 class="mb-4">Contacto:</h5>
+          <p><i class="bi bi-whatsapp"></i> Laura: 634534343</p>
+          <p><i class="bi bi-whatsapp"></i> Adrián: 616842546</p>
+        </div>
 
-    <!-- Lightbox Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.3/dist/index.bundle.min.js"></script>
+        <!-- Columna derecha: Derechos -->
+        <!-- Columna derecha: Derechos -->
+        <div class="col-md-6 d-flex flex-column align-items-end justify-content-center text-end">
+          <small class="block me-2">&copy; 2025 Adrián Expósito. Todos los derechos reservados.</small>
+          <small class="block me-2">Diseñado por <a href="https://instagram.com/zlhsny._"
+              target="_blank">@adri9514</a>.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <!-- Countdown tu set random sahaja -->
-    <script>
-  simplyCountdown(".simply-countdown", {
-    year: 2025,
-    month: 10,
-    day: 11,
-    hours: 12,
-    minutes: 0,
-    seconds: 0,
-   words: {
-  days: { singular: "día", plural: "días" },
-  hours: { singular: "hora", plural: "horas" },
-  minutes: { singular: "minuto", plural: "minutos" },
-  seconds: { singular: "segundo", plural: "segundos" },
-},
-    plural: true,
-    zeroPad: false,
-    countUp: false,
-    inline: false,
-    enableUtc: false,
-    refresh: 1000,
-  });
-</script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
 
+  <!-- SimplyCountdown Config -->
+  <script>
+    simplyCountdown(".simply-countdown", {
+      year: 2025,
+      month: 10,
+      day: 11,
+      hours: 12,
+      minutes: 0,
+      seconds: 0,
+      words: {
+        days: { singular: "día", plural: "días" },
+        hours: { singular: "hora", plural: "horas" },
+        minutes: { singular: "minuto", plural: "minutos" },
+        seconds: { singular: "segundo", plural: "segundos" }
+      },
+      plural: true,
+      zeroPad: false,
+      countUp: false,
+      inline: false,
+      enableUtc: false,
+      refresh: 1000
+    });
+  </script>
 
-    <!-- Solve problem when the website change to mobile screen for NavBar -->
-    <script>
-      // Select elements with the class "sticky-top" and "offcanvas"
-      const stickyTop = document.querySelector(".sticky-top");
-      const offcanvas = document.querySelector(".offcanvas");
+  <!-- NavBar behavior -->
+  <script>
+    const stickyTop = document.querySelector(".sticky-top");
+    const offcanvas = document.querySelector(".offcanvas");
 
-      // Event listener for when the offcanvas is shown
-      offcanvas.addEventListener("show.bs.offcanvas", function () {
-        // Change the overflow style of the sticky-top element to 'visible'
-        // This allows the sticky-top content to be fully displayed without being clipped
-        stickyTop.style.overflow = "visible";
+    offcanvas.addEventListener("show.bs.offcanvas", function () {
+      stickyTop.style.overflow = "visible";
+    });
+
+    offcanvas.addEventListener("hidden.bs.offcanvas", function () {
+      stickyTop.style.overflow = "hidden";
+    });
+  </script>
+
+  <!-- Confirmación de asistencia -->
+  <script>
+    const form = document.getElementById("formAsistencia");
+    const adultosContainer = document.getElementById("adultosContainer");
+    const numAdultos = document.getElementById("numAdultos");
+
+    const entryIDs = {
+      asistiras: "1413272132",
+      numAdultos: "2141009799",
+      comentario: "921377968",
+      nombres: [
+        "1525878708", "299279602", "981307011",
+        "2105257405", "417942036", "2038148432"
+      ],
+      restricciones: [
+        "1148688040", "1681023192", "1500750978",
+        "1562492326", "1889311029", "161287335"
+      ]
+    };
+
+    function generarCamposAdultos(cantidad) {
+      adultosContainer.innerHTML = "";
+      for (let i = 0; i < cantidad; i++) {
+        adultosContainer.innerHTML += `
+            <div class="row g-2 mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="nombre${i}" placeholder="Nombre y apellido / Adulto ${i + 1}" required>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="restricciones${i}" placeholder="Alergias / Intolerancias">
+              </div>
+            </div>
+          `;
+      }
+    }
+
+    numAdultos.addEventListener("change", () => {
+      generarCamposAdultos(Number(numAdultos.value));
+    });
+
+    generarCamposAdultos(Number(numAdultos.value));
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = new FormData();
+      const cantidad = Number(numAdultos.value);
+      const asistiras = form.querySelector("input[name='asistiras']:checked")?.value || "";
+      const comentario = form.querySelector("#comentario").value;
+
+      data.append(`entry.${entryIDs.asistiras}`, asistiras);
+      data.append(`entry.${entryIDs.numAdultos}`, cantidad);
+      data.append(`entry.${entryIDs.comentario}`, comentario);
+
+      for (let i = 0; i < cantidad; i++) {
+        const nombre = form.querySelector(`[name="nombre${i}"]`).value;
+        const restric = form.querySelector(`[name="restricciones${i}"]`).value;
+        data.append(`entry.${entryIDs.nombres[i]}`, nombre);
+        data.append(`entry.${entryIDs.restricciones[i]}`, restric);
+      }
+
+      fetch("https://docs.google.com/forms/d/e/1FAIpQLSck9jqdRNd5vatMdyMebtzpuxeCPAdfO02sWlHphNDI9zyypw/formResponse", {
+        method: "POST",
+        mode: "no-cors",
+        body: data
       });
 
-      // Event listener for when the offcanvas is hidden
-      offcanvas.addEventListener("hidden.bs.offcanvas", function () {
-        // Change the overflow style of the sticky-top element to 'hidden'
-        // This prevents the content from overflowing when the offcanvas is hidden
-        stickyTop.style.overflow = "hidden";
-      });
-    </script>
+      if (asistiras === "No") {
+        alert("Sentimos mucho tu inasistencia 💔");
+      } else {
+        alert("¡Gracias por confirmar tu asistencia! 💌");
+      }
 
-    <!-- The user isn't redirected to the webapp after submit form -->
-    <script>
-      // Wait until the entire page is fully loaded
-      window.addEventListener("load", function () {
-        // Select the form element with the ID "my-form"
-        const form = document.getElementById("my-form");
+      form.reset();
+      generarCamposAdultos(1);
+      const modal = bootstrap.Modal.getInstance(document.getElementById("asistenciaModal"));
+      modal.hide();
+    });
+  </script>
 
-        // Add an event listener for the form's submit event
-        form.addEventListener("submit", function (e) {
-          // Prevent the form from submitting the usual way and reloading the page
-          e.preventDefault();
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const asistiraSi = document.querySelector("input[name='asistiras'][value='Sí']");
+      const asistiraNo = document.querySelector("input[name='asistiras'][value='No']");
+      const numAdultos = document.getElementById("numAdultos");
+      const restricciones = document.querySelectorAll("[name^='restricciones']");
 
-          // Collect all form data into a FormData object
-          const data = new FormData(form);
+      asistiraNo.addEventListener("change", function () {
+        // Desactiva selector de número de adultos
+        numAdultos.disabled = true;
 
-          // Get the URL from the form's action attribute
-          const action = e.target.action;
-
-          // Send the form data to the server using the fetch API
-          fetch(action, {
-            method: "POST", // Use the POST method for the request
-            body: data, // Send the form data in the request body
-          }).then(() => {
-            // Show an alert to the user once the form is successfully submitted
-            alert("Confirmation was successfully sent!");
-          });
+        // Desactiva campos de restricciones
+        restricciones.forEach((campo) => {
+          campo.disabled = true;
+          campo.value = ""; // opcional: limpia contenido
         });
       });
-    </script>
-  </body>
+
+      asistiraSi.addEventListener("change", function () {
+        // Activa selector de número de adultos
+        numAdultos.disabled = false;
+
+        // Activa campos de restricciones
+        restricciones.forEach((campo) => {
+          campo.disabled = false;
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const formMusica = document.getElementById("formMusica");
+
+      formMusica.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const data = new FormData();
+        data.append("entry.190779491", formMusica.nombreMusica.value);
+        data.append("entry.1300665900", formMusica.cancionMusica.value);
+
+        fetch("https://docs.google.com/forms/d/e/1FAIpQLSe4yWJ6ZpXPIZMEocF3k3X48AFJJYM2VxE5Wa-YkIDy3H1qPw/formResponse", {
+          method: "POST",
+          mode: "no-cors",
+          body: data,
+        });
+
+        alert("¡Gracias por tu recomendación musical! 🎵");
+
+        formMusica.reset();
+        const modal = bootstrap.Modal.getInstance(document.getElementById("musicaModal"));
+        modal.hide();
+      });
+    });
+  </script>
+</body>
+
 </html>

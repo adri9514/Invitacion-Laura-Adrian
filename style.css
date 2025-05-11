@@ -1,5 +1,4 @@
-/* --pink, --bg, --shadow is variable */
-
+/* Variables principales */
 :root {
   --pink: #f14e95;
   --bg: #0a0a0a;
@@ -12,6 +11,7 @@ body {
   min-height: 4000px;
 }
 
+/* Hero Section */
 .hero::before {
   content: "";
   position: absolute;
@@ -61,7 +61,6 @@ body {
   color: white;
 }
 
-/* !important supaya style tu yg digunakan */
 .mynavbar {
   background-color: rgba(255, 255, 255, 0.3) !important;
   backdrop-filter: blur(4px);
@@ -71,11 +70,6 @@ body {
   height: 100vh;
 }
 
-/* 
-.mynavbar .navbar-brand, .mynavbar .offcanvas-title: 
-This selector targets elements with the class .navbar-brand or .offcanvas-title 
-that are children of an element with the class .mynavbar.
-*/
 .mynavbar .navbar-brand,
 .mynavbar .offcanvas-title {
   font-family: "Sacramento", cursive;
@@ -85,7 +79,7 @@ that are children of an element with the class .mynavbar.
 
 .mynavbar .nav-link {
   text-transform: uppercase;
-  margin: 0 1.5rem; /* ← este es el espaciado entre los botones */
+  margin: 0 1.5rem;
 }
 
 .home {
@@ -218,6 +212,12 @@ that are children of an element with the class .mynavbar.
 .gifts p {
   font-size: 1rem;
   font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.gallery h2 {
+  margin-top: -1.5rem;
 }
 
 .timeline {
@@ -372,18 +372,16 @@ footer li {
   margin: 0.5rem;
 }
 
-/* Separación más amplia en la sección hero */
-
 .hero main h1 {
-  margin-bottom: 3rem; /* más separación debajo del título */
+  margin-bottom: 3rem;
 }
 
 .hero main p {
-  margin-bottom: 2.5rem; /* más separación debajo del subtítulo */
+  margin-bottom: 2.5rem;
 }
 
 .simply-countdown {
-  margin-bottom: 3.5rem; /* más separación debajo del contador */
+  margin-bottom: 3.5rem;
 }
 
 .hero main .btn {
@@ -391,15 +389,13 @@ footer li {
   font-size: 1.2rem;
 }
 
-/* Media Query */
-/* Extra large */
+/* Responsive */
 @media (max-width: 1200px) {
   .home .heart {
     transform: translateX(-50%) translateY(45px);
   }
 }
 
-/* laptop */
 @media (max-width: 992px) {
   html {
     font-size: 75%;
@@ -443,7 +439,6 @@ footer li {
   }
 }
 
-/* tablet */
 @media (max-width: 768px) {
   html {
     font-size: 65%;
@@ -469,7 +464,6 @@ footer li {
   }
 }
 
-/* mobile phone */
 @media (max-width: 576px) {
   html {
     font-size: 60%;
@@ -496,5 +490,46 @@ footer li {
 
   .timeline li .timeline-panel::after {
     top: 31px;
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: black;
+  }
+
+  .rsvp img:hover {
+    transform: scale(1.05) rotate(-2deg);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
   }
 }

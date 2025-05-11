@@ -1,184 +1,206 @@
 "use strict";
 
+/**
+ * Función para detectar el tipo de variable, incluyendo compatibilidad con Symbol.
+ */
 function _typeof(t) {
-    return (_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
-        ? function (t) { return typeof t; }
-        : function (t) {
-            return t && "function" == typeof Symbol && t.constructor === Symbol && t !== Symbol.prototype
-                ? "symbol"
-                : typeof t;
-        })(t);
+  return (_typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol"
+    ? function (t) {
+        return typeof t;
+      }
+    : function (t) {
+        return t && typeof Symbol === "function" && t.constructor === Symbol && t !== Symbol.prototype
+          ? "symbol"
+          : typeof t;
+      })(t);
 }
 
-(function (t) {
-
-    var n = function t(n) {
-        for (var e, o = n || {}, s = 1; s < arguments.length; s += 1) {
-            e = arguments[s];
-            var r = Object.keys(e);
-            if (r.length) {
-                for (var a = 0; a < r.length; a += 1) {
-                    var l = r[a];
-                    if (Object.prototype.hasOwnProperty.call(e, l)) {
-                        if ("object" === _typeof(e[l])) {
-                            t(o[l], e[l]);
-                        } else {
-                            o[l] = e[l];
-                        }
-                    }
-                }
-            }
+(function (window) {
+  /**
+   * Función de utilidad para mezclar objetos (similar a Object.assign pero recursivo).
+   */
+  const mergeOptions = function (target, ...sources) {
+    sources.forEach((source) => {
+      Object.keys(source).forEach((key) => {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          if (_typeof(source[key]) === "object") {
+            target[key] = target[key] || {};
+            mergeOptions(target[key], source[key]);
+          } else {
+            target[key] = source[key];
+          }
         }
-        return o;
-    };
+      });
+    });
+    return target;
+  };
 
-    var e = function (t, n, e) {
-        var o = document.createElement("div"),
-            s = document.createElement("span"),
-            r = document.createElement("span"),
-            a = document.createElement("div");
+  /**
+   * Crea los elementos HTML de cada sección del contador.
+   */
+  const createSection = function (parent, config, sectionClass) {
+    const wrapper = document.createElement("div");
+    const amount = document.createElement("span");
+    const label = document.createElement("span");
+    const inner = document.createElement("div");
 
-        a.appendChild(s);
-        a.appendChild(r);
-        o.appendChild(a);
-        o.classList.add(n.sectionClass);
-        o.classList.add(e);
-        s.classList.add(n.amountClass);
-        r.classList.add(n.wordClass);
-        t.appendChild(o);
+    inner.appendChild(amount);
+    inner.appendChild(label);
+    wrapper.appendChild(inner);
 
-        return { full: o, amount: s, word: r };
-    };
+    wrapper.classList.add(config.sectionClass, sectionClass);
+    amount.classList.add(config.amountClass);
+    label.classList.add(config.wordClass);
 
-    t.simplyCountdown = function (t, o) {
-        var s, r, a, l, i, u, c, d, p, m, y;
+    parent.appendChild(wrapper);
 
-        var g = Object.getPrototypeOf(t);
+    return { full: wrapper, amount: amount, word: label };
+  };
 
-        // 🔧 FECHA CONFIGURADA AQUÍ (puedes cambiarla fácilmente en el futuro)
-        var w = n({
-            year: 2025,
-            month: 10,
-            day: 11,
-            hours: 12,
-            minutes: 0,
-            seconds: 0,
-         words: {
-  days: { singular: "día", plural: "días" },
-  hours: { singular: "hora", plural: "horas" },
-  minutes: { singular: "minuto", plural: "minutos" },
-  seconds: { singular: "segundo", plural: "segundos" },
-},
+  /**
+   * Función principal del plugin.
+   */
+  window.simplyCountdown = function (selector, options) {
+    const elements = typeof selector === "string" ? document.querySelectorAll(selector) : selector;
 
-            plural: true,
-            inline: false,
-            enableUtc: false,
-            onEnd: function () {},
-            refresh: 1000,
-            inlineClass: "simply-countdown-inline",
-            sectionClass: "simply-section",
-            amountClass: "simply-amount",
-            wordClass: "simply-word",
-            zeroPad: false,
-            countUp: false
-        }, o);
+    const config = mergeOptions(
+      {
+        year: 2025,
+        month: 10,
+        day: 11,
+        hours: 12,
+        minutes: 0,
+        seconds: 0,
+        words: {
+          days: { singular: "día", plural: "días" },
+          hours: { singular: "hora", plural: "horas" },
+          minutes: { singular: "minuto", plural: "minutos" },
+          seconds: { singular: "segundo", plural: "segundos" }
+        },
+        plural: true,
+        inline: false,
+        enableUtc: false,
+        onEnd: function () {},
+        refresh: 1000,
+        inlineClass: "simply-countdown-inline",
+        sectionClass: "simply-section",
+        amountClass: "simply-amount",
+        wordClass: "simply-word",
+        zeroPad: false,
+        countUp: false
+      },
+      options
+    );
 
-        y = g === String.prototype ? document.querySelectorAll(t) : t;
+    const endDate = new Date(config.year, config.month - 1, config.day, config.hours, config.minutes, config.seconds);
+    const finalDate = config.enableUtc
+      ? new Date(
+          endDate.getUTCFullYear(),
+          endDate.getUTCMonth(),
+          endDate.getUTCDate(),
+          endDate.getUTCHours(),
+          endDate.getUTCMinutes(),
+          endDate.getUTCSeconds()
+        )
+      : endDate;
 
-        a = new Date(w.year, w.month - 1, w.day, w.hours, w.minutes, w.seconds);
+    /**
+     * Función que actualiza los valores del contador cada segundo.
+     */
+    const initCountdown = function (element) {
+      const structure = config.inline
+        ? (function () {
+            const span = document.createElement("span");
+            span.classList.add(config.inlineClass);
+            element.appendChild(span);
+            return span;
+          })()
+        : {
+            days: createSection(element, config, "simply-days-section"),
+            hours: createSection(element, config, "simply-hours-section"),
+            minutes: createSection(element, config, "simply-minutes-section"),
+            seconds: createSection(element, config, "simply-seconds-section")
+          };
 
-        r = w.enableUtc
-            ? new Date(a.getUTCFullYear(), a.getUTCMonth(), a.getUTCDate(), a.getUTCHours(), a.getUTCMinutes(), a.getUTCSeconds())
-            : a;
+      const update = function () {
+        const now = new Date();
+        const nowTime = config.enableUtc
+          ? new Date(
+              now.getUTCFullYear(),
+              now.getUTCMonth(),
+              now.getUTCDate(),
+              now.getUTCHours(),
+              now.getUTCMinutes(),
+              now.getUTCSeconds()
+            )
+          : now;
 
-        var f, h = function (t) {
-            var n, o = t;
+        let secondsDiff = (finalDate - nowTime.getTime()) / 1000;
 
-            var a = function (t, n) {
-                var o;
-                return t.inline
-                    ? ((o = document.createElement("span")).classList.add(t.inlineClass), o)
-                    : {
-                        days: e(n, t, "simply-days-section"),
-                        hours: e(n, t, "simply-hours-section"),
-                        minutes: e(n, t, "simply-minutes-section"),
-                        seconds: e(n, t, "simply-seconds-section")
-                    };
-            }(w, o);
+        let days, hours, minutes, seconds;
 
-            (n = function () {
-                var t, n, e, y;
-
-                var g = function () {
-                    c = parseInt(u / 86400, 10); u %= 86400;
-                    d = parseInt(u / 3600, 10); u %= 3600;
-                    p = parseInt(u / 60, 10);
-                    m = parseInt(u % 60, 10);
-                };
-
-                l = new Date();
-
-                w.enableUtc
-                    ? (i = new Date(l.getFullYear(), l.getMonth(), l.getDate(), l.getHours(), l.getMinutes(), l.getSeconds()),
-                       u = (r - i.getTime()) / 1000)
-                    : u = (r - l.getTime()) / 1000;
-
-                if (u > 0) {
-                    g();
-                } else if (w.countUp) {
-                    u = (l.getTime() - r) / 1000;
-                    g();
-                } else {
-                    c = 0; d = 0; p = 0; m = 0;
-                    window.clearInterval(s);
-                    w.onEnd();
-                }
-
-                w.plural
-                    ? (t = c > 1 ? w.words.days.plural : w.words.days.singular,
-                       n = d > 1 ? w.words.hours.plural : w.words.hours.singular,
-                       e = p > 1 ? w.words.minutes.plural : w.words.minutes.singular,
-                       y = m > 1 ? w.words.seconds.plural : w.words.seconds.singular)
-                    : (t = w.words.days.singular,
-                       n = w.words.hours.singular,
-                       e = w.words.minutes.singular,
-                       y = w.words.seconds.singular);
-
-                if (w.inline) {
-                    o.innerHTML = `${c} ${t}, ${d} ${n}, ${p} ${e}, ${m} ${y}.`;
-                } else {
-                    a.days.amount.textContent = (w.zeroPad && c.toString().length < 2 ? "0" : "") + c;
-                    a.days.word.textContent = t;
-
-                    a.hours.amount.textContent = (w.zeroPad && d.toString().length < 2 ? "0" : "") + d;
-                    a.hours.word.textContent = n;
-
-                    a.minutes.amount.textContent = (w.zeroPad && p.toString().length < 2 ? "0" : "") + p;
-                    a.minutes.word.textContent = e;
-
-                    a.seconds.amount.textContent = (w.zeroPad && m.toString().length < 2 ? "0" : "") + m;
-                    a.seconds.word.textContent = y;
-                }
-
-            })();
-
-            s = window.setInterval(n, w.refresh);
-        };
-
-        if (null !== (f = y) && Symbol.iterator in Object(f)) {
-            Array.prototype.forEach.call(y, function (t) { h(t); });
+        if (secondsDiff > 0) {
+          days = Math.floor(secondsDiff / 86400);
+          secondsDiff %= 86400;
+          hours = Math.floor(secondsDiff / 3600);
+          secondsDiff %= 3600;
+          minutes = Math.floor(secondsDiff / 60);
+          seconds = Math.floor(secondsDiff % 60);
+        } else if (config.countUp) {
+          secondsDiff = (nowTime.getTime() - finalDate) / 1000;
+          days = Math.floor(secondsDiff / 86400);
+          secondsDiff %= 86400;
+          hours = Math.floor(secondsDiff / 3600);
+          secondsDiff %= 3600;
+          minutes = Math.floor(secondsDiff / 60);
+          seconds = Math.floor(secondsDiff % 60);
         } else {
-            h(y);
+          days = hours = minutes = seconds = 0;
+          clearInterval(interval);
+          config.onEnd();
         }
 
+        const word = (amount, unit) =>
+          config.plural && amount !== 1 ? config.words[unit].plural : config.words[unit].singular;
+
+        if (config.inline) {
+          structure.innerHTML = `${days} ${word(days, "days")}, ${hours} ${word(hours, "hours")}, ${minutes} ${word(
+            minutes,
+            "minutes"
+          )}, ${seconds} ${word(seconds, "seconds")}.`;
+        } else {
+          structure.days.amount.textContent = config.zeroPad && days < 10 ? `0${days}` : days;
+          structure.days.word.textContent = word(days, "days");
+
+          structure.hours.amount.textContent = config.zeroPad && hours < 10 ? `0${hours}` : hours;
+          structure.hours.word.textContent = word(hours, "hours");
+
+          structure.minutes.amount.textContent = config.zeroPad && minutes < 10 ? `0${minutes}` : minutes;
+          structure.minutes.word.textContent = word(minutes, "minutes");
+
+          structure.seconds.amount.textContent = config.zeroPad && seconds < 10 ? `0${seconds}` : seconds;
+          structure.seconds.word.textContent = word(seconds, "seconds");
+        }
+      };
+
+      update(); // Ejecutar la primera vez al cargar
+      const interval = setInterval(update, config.refresh);
     };
 
+    // Ejecutar para cada selector
+    if (elements && Symbol.iterator in Object(elements)) {
+      Array.prototype.forEach.call(elements, initCountdown);
+    } else {
+      initCountdown(elements);
+    }
+  };
 })(window);
 
+// Compatibilidad con jQuery
 if (window.jQuery) {
-    (function ($, countdownFn) {
-        $.fn.simplyCountdown = function (options) {
-            return countdownFn(this.selector, options);
-        };
-    })(jQuery, simplyCountdown);
+  (function ($, countdownFn) {
+    $.fn.simplyCountdown = function (options) {
+      return countdownFn(this.selector, options);
+    };
+  })(jQuery, simplyCountdown);
 }
