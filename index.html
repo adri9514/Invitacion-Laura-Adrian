@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wedding Invitation</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/214817/wedding-marry.svg" type="image/x-icon" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Fuentes adicionales -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Italianno&family=Parisienne&family=Herr+Von+Muellerhoff&family=Tangerine&display=swap"
+    rel="stylesheet">
+
+  <!-- SimplyCountdown -->
+  <link rel="stylesheet" href="countdown/simplyCountdown.theme.default.css" />
+  <script src="countdown/simplyCountdown.js"></script>
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+  <!-- Estilos personalizados -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const offcanvasElement = document.getElementById("offcanvasNavbar");
+    const offcanvasInstance = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+
+    document.querySelectorAll("a.nav-link").forEach(link => {
+      link.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+
+        // Asegurarse de que el enlace apunta a una sección interna
+        if (targetId.startsWith("#") && targetId.length > 1) {
+          e.preventDefault();
+
+          const scrollToSection = () => {
+            const target = document.querySelector(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          };
+
+          // Si el offcanvas está visible, esperamos a que se cierre
+          if (offcanvasElement.classList.contains("show")) {
+            offcanvasElement.addEventListener("hidden.bs.offcanvas", function scrollAndRemove() {
+              scrollToSection();
+              offcanvasElement.removeEventListener("hidden.bs.offcanvas", scrollAndRemove);
+            });
+            offcanvasInstance.hide();
+          } else {
+            // Escritorio: hacemos scroll directo
+            scrollToSection();
+          }
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector('.navbar');
+    const homeSection = document.querySelector('#home');
+
+    function handleScroll() {
+      const homeTop = homeSection.getBoundingClientRect().top;
+
+      if (homeTop <= 0) {
+        navbar.classList.add('sticky-top');
+      } else {
+        navbar.classList.remove('sticky-top');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+  });
+</script>
+
+<body>
+  <section id="hero"
+    class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
+    <main>
+      <h1 class="fuente-parisienne">Laura & Adrián</h1>
+      <p>¡Empieza la cuenta atrás!</p>
+      <div class="simply-countdown"></div>
+      <a href="#home" class="btn btn-lg mt-4" onClick="enableScroll()">Ver invitación</a>
+    </main>
+  </section>
+
+  <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
+    <div class="container">
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-label="Menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" id="offcanvasNavbar">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link nav-spacing" href="#home">Inicio</a>
+            <a class="nav-link nav-spacing" href="#info">Ubicación</a>
+            <a class="nav-link nav-spacing" href="#story">Cronología</a>
+            <a class="nav-link nav-spacing" href="#rsvp">Confirmación de asistencia</a>
+            <a class="nav-link nav-spacing" href="#gifts">Añade tu música</a>
+            <a class="nav-link nav-spacing" href="#gallery">Galería</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home -->
+  <section id="home" class="home">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+          <h2>¡Nos casamos!</h2>
+          <h3>11 de octubre de 2025 - Real Club Astur de Regatas de Gijón</h3>
+          <p>Tu presencia hará nuestro día todavía más especial.</p>
+        </div>
+      </div>
+
+  </section>
+  <!-- Info: Lugar y hora -->
+  <section id="info" class="info">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Ubicación</h2>
+          <p class="alamat">
+            Dirección: Real Club Astur de Regatas, Gijón <br />
+            Calle Claudio Alvargonzález, s/n, 33201 Gijón, Asturias
+          </p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2891.733796474304!2d-5.6631292!3d43.5467525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd36f0b92d8a4f17%3A0xb5c9ea60a853b164!2sReal%20Club%20Astur%20de%20Regatas!5e0!3m2!1ses!2ses!4v1715280400000!5m2!1ses!2ses"
+            width="100%" height="250" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a href="https://www.google.com/maps/place/Real+Club+Astur+de+Regatas/@43.5469056,-5.6629721,15.75z/data=!4m6!3m5!1s0xd367c6700558f6d:0x970621b03d8f616f!8m2!3d43.5465917!4d-5.660362!16s%2Fg%2F11btmqyjvk?entry=ttu&g_ep=EgoyMDI1MDUwNi4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank" class="btn btn-light btn-sm my-3">
+            Ver ubicación en Google Maps
+          </a>
+
+  </section>
+
+  <!-- Story section -->
+  <section id="story" class="story">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Cronología</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-image" style="background-image: url(img/ceremonia.jpg);"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Recepción y Ceremonia</h3>
+                  <span>12:00 h</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Comienza la celebración oficial del enlace.</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image" style="background-image: url(img/coctel.jpg);"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Cóctel</h3>
+                  <span>13:00 h</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Disfrutaremos de unos aperitivos con vistas al mar.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image" style="background-image: url(img/banquete.jpg);"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Banquete</h3>
+                  <span>15:00 h</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Una comida inolvidable con todos nuestros seres queridos.</p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-image" style="background-image: url(img/fiesta.jpg);"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Fiesta</h3>
+                  <span>Hasta la 01:00 h</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Baile, copas y muchas sorpresas.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-image" style="background-image: url(img/cimavilla.jpg);"></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h3>Cimavilla</h3>
+                  <span>Hasta que el cuerpo aguante</span>
+                </div>
+                <div class="timeline-body">
+                  <p>Rematamos la noche por el barrio más mítico de Gijón.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp" class="rsvp">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Asistencia</h2>
+          <p>¿Nos acompañas?</p>
+
+          <!-- Botón con imagen de sobre que abre el formulario -->
+          <a href="#" data-bs-toggle="modal" data-bs-target="#asistenciaModal">
+            <img src="img/sobre-icono.png" alt="Confirmar asistencia" style="width: 120px; margin-top: 20px;" />
+            <div style="margin-top: 10px; font-style: italic; color: white;">Pulsa en el sobre</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Sección de música -->
+  <section id="gifts" class="gifts">
+    <div class="container text-center">
+      <h2>Toda boda necesita<br>UN FIESTÓN</h2>
+      <p style="font-size: 1.25rem; font-style: italic; margin-top: 10px;">¿Qué canción no puede faltar esa noche?</p>
+
+      <!-- Botón que abre el modal de música -->
+      <a href="#" data-bs-toggle="modal" data-bs-target="#musicaModal">
+        <img src="img/icono-musica.png" alt="Recomienda canciones" style="width: 120px; margin-top: 20px;" />
+        <div style="margin-top: 10px; font-style: italic; color: black;">¡Recomienda canciones!</div>
+      </a>
+  </section>
+
+  <!-- Galería -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-10 text-center">
+          <h2>Galería</h2>
+          <p>Escanea este código QR para ver y subir tus fotos del gran día:</p>
+          <img src="img/qr-fotos.png" alt="Código QR para subir fotos" class="img-thumbnail" width="200" />
+          <p class="mt-3">
+            <a href="https://drive.google.com/drive/folders/12gjlnrf7P-SSk76IuN3AHqgeAA1Si9W-" target="_blank"
+              class="btn btn-light">O pulsa aquí si estás en el móvil</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal con el formulario -->
+  <div class="modal fade" id="asistenciaModal" tabindex="-1" aria-labelledby="asistenciaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="asistenciaModalLabel">Confirmar Asistencia</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario personalizado -->
+          <form id="formAsistencia">
+            <div class="mb-3">
+              <label class="form-label">¿Asistirás?</label><br />
+              <label>
+                <input type="radio" id="asistiraSi" name="asistiras" value="Sí" required /> Sí
+              </label>
+              <label>
+                <input type="radio" id="asistiraNo" name="asistiras" value="No" required /> No
+              </label>
+            </div>
+
+            <div class="mb-3">
+              <label for="numAdultos" class="form-label">Número de adultos</label>
+              <select id="numAdultos" name="numAdultos" class="form-select" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+
+            <div id="adultosContainer"></div>
+
+            <div class="mb-3">
+              <label for="comentario" class="form-label">¿Algún comentario adicional?</label>
+              <textarea class="form-control" id="comentario" name="comentario"
+                placeholder="Escribe aquí tu mensaje..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-dark w-100">Clic aquí para enviar</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </section>
+  <!-- Attendance form end -->
+
+  <!-- Modal de Recomendación de Música -->
+  <div class="modal fade" id="musicaModal" tabindex="-1" aria-labelledby="musicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="musicaModalLabel">¡Recomienda canciones!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formMusica">
+            <div class="mb-3">
+              <label for="nombreMusica" class="form-label">Tu nombre</label>
+              <input type="text" class="form-control" id="nombreMusica" name="nombreMusica" required />
+            </div>
+            <div class="mb-3">
+              <label for="cancionMusica" class="form-label">¿Qué canción te gustaría que sonara?</label>
+              <input type="text" class="form-control" id="cancionMusica" name="cancionMusica" required />
+            </div>
+            <button type="submit" class="btn btn-dark w-100">Enviar sugerencia</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <!-- Columna izquierda: Contacto -->
+        <div class="col-md-6 text-start">
+          <h5 class="mb-4">Contacto:</h5>
+          <p><i class="bi bi-whatsapp"></i>Adrián: 616842546</p>
+          <p><i class="bi bi-whatsapp"></i>Laura: 634534343</p>
+        </div>
+
+        <!-- Columna derecha: Derechos -->
+        <div class="col-md-6 d-flex flex-column align-items-end justify-content-center text-end">
+          <small class="block me-2">&copy; 2025 Adrián Expósito. <br /> Todos los derechos reservados. <br /> </small>
+          <small class="block me-2">Diseñado por <a href="https://github.com/adri9514"
+              target="_blank">@adri9514</a>.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+
+  <!-- SimplyCountdown Config -->
+  <script>
+    simplyCountdown(".simply-countdown", {
+      year: 2025,
+      month: 10,
+      day: 11,
+      hours: 12,
+      minutes: 0,
+      seconds: 0,
+      words: {
+        days: { singular: "día", plural: "días" },
+        hours: { singular: "hora", plural: "horas" },
+        minutes: { singular: "minuto", plural: "minutos" },
+        seconds: { singular: "segundo", plural: "segundos" }
+      },
+      plural: true,
+      zeroPad: false,
+      countUp: false,
+      inline: false,
+      enableUtc: false,
+      refresh: 1000
+    });
+  </script>
+
+  <!-- NavBar behavior -->
+  <script>
+    const stickyTop = document.querySelector(".sticky-top");
+    const offcanvas = document.querySelector(".offcanvas");
+
+    offcanvas.addEventListener("show.bs.offcanvas", function () {
+      stickyTop.style.overflow = "visible";
+    });
+
+    offcanvas.addEventListener("hidden.bs.offcanvas", function () {
+      stickyTop.style.overflow = "hidden";
+    });
+  </script>
+
+  <!-- Confirmación de asistencia -->
+  <script>
+    const form = document.getElementById("formAsistencia");
+    const adultosContainer = document.getElementById("adultosContainer");
+    const numAdultos = document.getElementById("numAdultos");
+
+    const entryIDs = {
+      asistiras: "1413272132",
+      numAdultos: "2141009799",
+      comentario: "921377968",
+      nombres: [
+        "1525878708", "299279602", "981307011",
+        "2105257405", "417942036", "2038148432"
+      ],
+      restricciones: [
+        "1148688040", "1681023192", "1500750978",
+        "1562492326", "1889311029", "161287335"
+      ]
+    };
+
+    function generarCamposAdultos(cantidad) {
+      adultosContainer.innerHTML = "";
+      for (let i = 0; i < cantidad; i++) {
+        adultosContainer.innerHTML += `
+            <div class="row g-2 mb-3">
+              <div class="col">
+                <input type="text" class="form-control" name="nombre${i}" placeholder="Nombre y apellido / Adulto ${i + 1}" required>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" name="restricciones${i}" placeholder="Alergias / Intolerancias">
+              </div>
+            </div>
+          `;
+      }
+    }
+
+    numAdultos.addEventListener("change", () => {
+      generarCamposAdultos(Number(numAdultos.value));
+    });
+
+    generarCamposAdultos(Number(numAdultos.value));
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = new FormData();
+      const cantidad = Number(numAdultos.value);
+      const asistiras = form.querySelector("input[name='asistiras']:checked")?.value || "";
+      const comentario = form.querySelector("#comentario").value;
+
+      data.append(`entry.${entryIDs.asistiras}`, asistiras);
+      data.append(`entry.${entryIDs.numAdultos}`, cantidad);
+      data.append(`entry.${entryIDs.comentario}`, comentario);
+
+      for (let i = 0; i < cantidad; i++) {
+        const nombre = form.querySelector(`[name="nombre${i}"]`).value;
+        const restric = form.querySelector(`[name="restricciones${i}"]`).value;
+        data.append(`entry.${entryIDs.nombres[i]}`, nombre);
+        data.append(`entry.${entryIDs.restricciones[i]}`, restric);
+      }
+
+      fetch("https://docs.google.com/forms/d/e/1FAIpQLSck9jqdRNd5vatMdyMebtzpuxeCPAdfO02sWlHphNDI9zyypw/formResponse", {
+        method: "POST",
+        mode: "no-cors",
+        body: data
+      });
+
+      if (asistiras === "No") {
+        alert("Sentimos mucho tu inasistencia 💔");
+      } else {
+        alert("¡Gracias por confirmar tu asistencia! 💌");
+      }
+
+      form.reset();
+      generarCamposAdultos(1);
+      const modal = bootstrap.Modal.getInstance(document.getElementById("asistenciaModal"));
+      modal.hide();
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const asistiraSi = document.querySelector("input[name='asistiras'][value='Sí']");
+      const asistiraNo = document.querySelector("input[name='asistiras'][value='No']");
+      const numAdultos = document.getElementById("numAdultos");
+      const restricciones = document.querySelectorAll("[name^='restricciones']");
+
+      asistiraNo.addEventListener("change", function () {
+        // Desactiva selector de número de adultos
+        numAdultos.disabled = true;
+
+        // Desactiva campos de restricciones
+        restricciones.forEach((campo) => {
+          campo.disabled = true;
+          campo.value = ""; // opcional: limpia contenido
+        });
+      });
+
+      asistiraSi.addEventListener("change", function () {
+        // Activa selector de número de adultos
+        numAdultos.disabled = false;
+
+        // Activa campos de restricciones
+        restricciones.forEach((campo) => {
+          campo.disabled = false;
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const formMusica = document.getElementById("formMusica");
+
+      formMusica.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const data = new FormData();
+        data.append("entry.190779491", formMusica.nombreMusica.value);
+        data.append("entry.1300665900", formMusica.cancionMusica.value);
+
+        fetch("https://docs.google.com/forms/d/e/1FAIpQLSe4yWJ6ZpXPIZMEocF3k3X48AFJJYM2VxE5Wa-YkIDy3H1qPw/formResponse", {
+          method: "POST",
+          mode: "no-cors",
+          body: data,
+        });
+
+        alert("¡Gracias por tu recomendación musical! 🎵");
+
+        formMusica.reset();
+        const modal = bootstrap.Modal.getInstance(document.getElementById("musicaModal"));
+        modal.hide();
+      });
+    });
+  </script>
+</body>
+
+</html>
