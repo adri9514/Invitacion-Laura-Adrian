@@ -653,4 +653,19 @@ footer li {
     overflow: hidden;
   }
 }
+
+@media (max-width: 768px) {
+  .mynavbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1055; /* superior al backdrop del offcanvas */
+  }
+
+  body {
+    padding-top: 56px; /* deja espacio para la navbar fija */
+  }
+}
+
 }

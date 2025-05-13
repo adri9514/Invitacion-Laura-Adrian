@@ -68,6 +68,26 @@
   });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.querySelector(".mynavbar");
+    const heroSection = document.querySelector("#hero");
+
+    function toggleNavbarVisibility() {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+
+      if (heroBottom <= 0) {
+        navbar.classList.remove("d-none");
+      } else {
+        navbar.classList.add("d-none");
+      }
+    }
+
+    toggleNavbarVisibility();
+    window.addEventListener("scroll", toggleNavbarVisibility);
+  });
+</script>
+
 <body>
   <section id="hero"
     class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
