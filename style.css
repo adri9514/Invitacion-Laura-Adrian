@@ -653,4 +653,14 @@ footer li {
     overflow: hidden;
   }
 }
+
+@media (max-width: 768px) {
+  .sticky-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+    transition: top 0.3s;
+  }
+}
 }
