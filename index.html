@@ -36,9 +36,33 @@
     const offcanvasElement = document.getElementById("offcanvasNavbar");
     const offcanvasInstance = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
 
-    document.querySelectorAll(".offcanvas .nav-link").forEach(link => {
-      link.addEventListener("click", () => {
-        offcanvasInstance.hide();
+    document.querySelectorAll("a.nav-link").forEach(link => {
+      link.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
+
+        // Asegurarse de que el enlace apunta a una sección interna
+        if (targetId.startsWith("#") && targetId.length > 1) {
+          e.preventDefault();
+
+          const scrollToSection = () => {
+            const target = document.querySelector(targetId);
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          };
+
+          // Si el offcanvas está visible, esperamos a que se cierre
+          if (offcanvasElement.classList.contains("show")) {
+            offcanvasElement.addEventListener("hidden.bs.offcanvas", function scrollAndRemove() {
+              scrollToSection();
+              offcanvasElement.removeEventListener("hidden.bs.offcanvas", scrollAndRemove);
+            });
+            offcanvasInstance.hide();
+          } else {
+            // Escritorio: hacemos scroll directo
+            scrollToSection();
+          }
+        }
       });
     });
   });
@@ -326,7 +350,7 @@
 
         <!-- Columna derecha: Derechos -->
         <div class="col-md-6 d-flex flex-column align-items-end justify-content-center text-end">
-          <small class="block me-2">&copy; 2025 Adrián Expósito. Todos los derechos reservados.</small>
+          <small class="block me-2">&copy; 2025 Adrián Expósito. <br /> Todos los derechos reservados. <br /> </small>
           <small class="block me-2">Diseñado por <a href="https://github.com/adri9514"
               target="_blank">@adri9514</a>.</small>
         </div>
