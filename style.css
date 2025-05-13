@@ -663,14 +663,15 @@ footer li {
     z-index: 1055; /* superior al backdrop del offcanvas */
   }
 
+  @media (max-width: 768px) {
+  .hero {
+    margin-top: 0;
+    padding-top: 6rem; /* ajusta si hace falta */
+  }
+}
+
   body {
     padding-top: 56px; /* deja espacio para la navbar fija */
   }
 }
-
-.hero {
-  margin-top: -5rem;
-  padding-top: 5rem;
-}
-
 }
