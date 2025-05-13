@@ -668,4 +668,9 @@ footer li {
   }
 }
 
+.hero {
+  margin-top: -5rem;
+  padding-top: 5rem;
+}
+
 }
