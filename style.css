@@ -432,13 +432,6 @@ footer li {
     font-size: 75%;
   }
 
-<<<<<<< HEAD
-=======
-  .simply-countdown > .simply-section {
-    padding: 70px;
-  }
-
->>>>>>> be95fdd971ae5582c9eec761ba7128c4b335450e
   .home .heart {
     display: none;
   }
@@ -494,14 +487,6 @@ footer li {
     font-size: 0.9rem;
   }
 
-<<<<<<< HEAD
-=======
-  .simply-countdown > .simply-section {
-    padding: 60px;
-    margin: 5px;
-  }
-
->>>>>>> be95fdd971ae5582c9eec761ba7128c4b335450e
   .mynavbar .nav-link {
     font-size: 2rem;
     text-align: center;
@@ -534,11 +519,7 @@ footer li {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-<<<<<<< HEAD
   gap: 10px;
-=======
-  gap: 10px; /* espacio entre círculos */
->>>>>>> be95fdd971ae5582c9eec761ba7128c4b335450e
 }
 
   .simply-countdown .simply-amount {
@@ -549,14 +530,6 @@ footer li {
     font-size: 0.8rem;
   }
 
-<<<<<<< HEAD
-=======
-  .simply-countdown > .simply-section {
-    padding: 45px;
-    margin: 3px;
-  }
-
->>>>>>> be95fdd971ae5582c9eec761ba7128c4b335450e
   .timeline li .timeline-image {
     width: 80px;
     height: 80px;
@@ -604,14 +577,6 @@ footer li {
   }
 }
 
-<<<<<<< HEAD
-=======
-.simply-countdown > .simply-section {
-  background-color: var(--navy) !important;
-  color: white !important;
-}
-
->>>>>>> be95fdd971ae5582c9eec761ba7128c4b335450e
 @media (max-width: 576px) {
   .gallery {
     padding-top: 4rem;
