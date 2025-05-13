@@ -432,10 +432,6 @@ footer li {
     font-size: 75%;
   }
 
-  .simply-countdown > .simply-section {
-    padding: 70px;
-  }
-
   .home .heart {
     display: none;
   }
@@ -491,11 +487,6 @@ footer li {
     font-size: 0.9rem;
   }
 
-  .simply-countdown > .simply-section {
-    padding: 60px;
-    margin: 5px;
-  }
-
   .mynavbar .nav-link {
     font-size: 2rem;
     text-align: center;
@@ -528,7 +519,7 @@ footer li {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px; /* espacio entre círculos */
+  gap: 10px;
 }
 
   .simply-countdown .simply-amount {
@@ -537,11 +528,6 @@ footer li {
 
   .simply-countdown .simply-word {
     font-size: 0.8rem;
-  }
-
-  .simply-countdown > .simply-section {
-    padding: 45px;
-    margin: 3px;
   }
 
   .timeline li .timeline-image {
@@ -589,11 +575,6 @@ footer li {
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
   }
-}
-
-.simply-countdown > .simply-section {
-  background-color: var(--navy) !important;
-  color: white !important;
 }
 
 @media (max-width: 576px) {
@@ -662,5 +643,27 @@ footer li {
     z-index: 1030;
     transition: top 0.3s;
   }
+}
+
+.simply-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  padding: 0 1rem;
+}
+
+.simply-countdown > .simply-section {
+  flex: 1 1 auto;
+  max-width: 22vw;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: var(--navy) !important;
+  color: white !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(0.8rem, 2.5vw, 1.4rem);
 }
 }
