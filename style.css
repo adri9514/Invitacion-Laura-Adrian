@@ -331,11 +331,11 @@ body {
 }
 
 .gifts {
-  background-color: #e3e3e3;
+  background-color: white;
 }
 
 .rsvp {
-  background-color: white;
+  background-color: #e3e3e3;
   color: #111;
 }
 
@@ -511,35 +511,33 @@ footer li {
   }
 }
 
-.simply-countdown {
+@media (max-width: 576px) {
+  .simply-countdown > .simply-section {
+    padding: 30px;
+    margin: 3px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .simply-countdown {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  padding: 0 1rem;
+  gap: 10px; /* espacio entre círculos */
 }
 
-.simply-countdown > .simply-section {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: var(--navy) !important;
-  color: white !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  flex-shrink: 0;
-}
+  .simply-countdown .simply-amount {
+    font-size: 1.2rem;
+  }
 
-.simply-countdown .simply-amount {
-  font-size: 1.2rem;
-}
-
-.simply-countdown .simply-word {
-  font-size: 0.8rem;
-}
+  .simply-countdown .simply-word {
+    font-size: 0.8rem;
+  }
 
   .simply-countdown > .simply-section {
     padding: 45px;
@@ -591,6 +589,7 @@ footer li {
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
   }
+}
 
 .simply-countdown > .simply-section {
   background-color: var(--navy) !important;
