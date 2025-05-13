@@ -31,6 +31,19 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const offcanvasElement = document.getElementById("offcanvasNavbar");
+    const offcanvasInstance = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+
+    document.querySelectorAll(".offcanvas .nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        offcanvasInstance.hide();
+      });
+    });
+  });
+</script>
+
 <body>
   <section id="hero"
     class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
@@ -50,7 +63,6 @@
       </button>
       <div class="offcanvas offcanvas-end" id="offcanvasNavbar">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title">Zul</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
         </div>
         <div class="offcanvas-body">
@@ -315,7 +327,7 @@
         <!-- Columna derecha: Derechos -->
         <div class="col-md-6 d-flex flex-column align-items-end justify-content-center text-end">
           <small class="block me-2">&copy; 2025 Adrián Expósito. Todos los derechos reservados.</small>
-          <small class="block me-2">Diseñado por <a href="https://instagram.com/zlhsny._"
+          <small class="block me-2">Diseñado por <a href="https://github.com/adri9514"
               target="_blank">@adri9514</a>.</small>
         </div>
       </div>

@@ -471,8 +471,24 @@ footer li {
 }
 
 @media (max-width: 768px) {
-  html {
-    font-size: 65%;
+  .simply-countdown > .simply-section {
+    padding: 40px;
+    margin: 4px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .simply-countdown .simply-amount {
+    font-size: 1.4rem;
+  }
+
+  .simply-countdown .simply-word {
+    font-size: 0.9rem;
   }
 
   .simply-countdown > .simply-section {
@@ -497,12 +513,30 @@ footer li {
 
 @media (max-width: 576px) {
   .simply-countdown > .simply-section {
-    padding: 15px;
-    margin: 2px;
-    font-size: 0.75rem;
-    width: 60px;
-    height: 60px;
+    padding: 30px;
+    margin: 3px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .simply-countdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* espacio entre círculos */
+}
+
+  .simply-countdown .simply-amount {
+    font-size: 1.2rem;
+  }
+
+  .simply-countdown .simply-word {
+    font-size: 0.8rem;
   }
 
   .simply-countdown > .simply-section {
@@ -526,19 +560,6 @@ footer li {
 
   .timeline li .timeline-panel::after {
     top: 31px;
-  }
-
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
   }
 
   .modal-content {
@@ -573,4 +594,42 @@ footer li {
 .simply-countdown > .simply-section {
   background-color: var(--navy) !important;
   color: white !important;
+}
+
+@media (max-width: 576px) {
+  .gallery {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .gallery h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .gallery p {
+    font-size: 1rem;
+  }
+
+  .gallery img {
+    width: 150px;
+  }
+
+  .gallery a.btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  footer .col-md-6:last-child {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .gifts h2 {
+    white-space: nowrap;
+    font-size: 3rem;
+  }
 }
