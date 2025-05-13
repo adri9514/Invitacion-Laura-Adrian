@@ -496,8 +496,13 @@ footer li {
 }
 
 @media (max-width: 576px) {
-  html {
-    font-size: 60%;
+  .simply-countdown > .simply-section {
+    padding: 20px;
+    margin: 3px;
+    font-size: 0.8rem;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
   }
 
   .simply-countdown > .simply-section {
