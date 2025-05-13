@@ -4,15 +4,19 @@
  * Función para detectar el tipo de variable, incluyendo compatibilidad con Symbol.
  */
 function _typeof(t) {
-  return (_typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol"
-    ? function (t) {
-        return typeof t;
-      }
-    : function (t) {
-        return t && typeof Symbol === "function" && t.constructor === Symbol && t !== Symbol.prototype
-          ? "symbol"
-          : typeof t;
-      })(t);
+  return (_typeof =
+    typeof Symbol === "function" && typeof Symbol.iterator === "symbol"
+      ? function (t) {
+          return typeof t;
+        }
+      : function (t) {
+          return t &&
+            typeof Symbol === "function" &&
+            t.constructor === Symbol &&
+            t !== Symbol.prototype
+            ? "symbol"
+            : typeof t;
+        })(t);
 }
 
 (function (window) {
@@ -61,7 +65,10 @@ function _typeof(t) {
    * Función principal del plugin.
    */
   window.simplyCountdown = function (selector, options) {
-    const elements = typeof selector === "string" ? document.querySelectorAll(selector) : selector;
+    const elements =
+      typeof selector === "string"
+        ? document.querySelectorAll(selector)
+        : selector;
 
     const config = mergeOptions(
       {
@@ -75,7 +82,7 @@ function _typeof(t) {
           days: { singular: "día", plural: "días" },
           hours: { singular: "hora", plural: "horas" },
           minutes: { singular: "minuto", plural: "minutos" },
-          seconds: { singular: "segundo", plural: "segundos" }
+          seconds: { singular: "segundo", plural: "segundos" },
         },
         plural: true,
         inline: false,
@@ -87,12 +94,19 @@ function _typeof(t) {
         amountClass: "simply-amount",
         wordClass: "simply-word",
         zeroPad: false,
-        countUp: false
+        countUp: false,
       },
       options
     );
 
-    const endDate = new Date(config.year, config.month - 1, config.day, config.hours, config.minutes, config.seconds);
+    const endDate = new Date(
+      config.year,
+      config.month - 1,
+      config.day,
+      config.hours,
+      config.minutes,
+      config.seconds
+    );
     const finalDate = config.enableUtc
       ? new Date(
           endDate.getUTCFullYear(),
@@ -119,7 +133,7 @@ function _typeof(t) {
             days: createSection(element, config, "simply-days-section"),
             hours: createSection(element, config, "simply-hours-section"),
             minutes: createSection(element, config, "simply-minutes-section"),
-            seconds: createSection(element, config, "simply-seconds-section")
+            seconds: createSection(element, config, "simply-seconds-section"),
           };
 
       const update = function () {
@@ -161,24 +175,33 @@ function _typeof(t) {
         }
 
         const word = (amount, unit) =>
-          config.plural && amount !== 1 ? config.words[unit].plural : config.words[unit].singular;
+          config.plural && amount !== 1
+            ? config.words[unit].plural
+            : config.words[unit].singular;
 
         if (config.inline) {
-          structure.innerHTML = `${days} ${word(days, "days")}, ${hours} ${word(hours, "hours")}, ${minutes} ${word(
-            minutes,
-            "minutes"
-          )}, ${seconds} ${word(seconds, "seconds")}.`;
+          structure.innerHTML = `${days} ${word(days, "days")}, ${hours} ${word(
+            hours,
+            "hours"
+          )}, ${minutes} ${word(minutes, "minutes")}, ${seconds} ${word(
+            seconds,
+            "seconds"
+          )}.`;
         } else {
-          structure.days.amount.textContent = config.zeroPad && days < 10 ? `0${days}` : days;
+          structure.days.amount.textContent =
+            config.zeroPad && days < 10 ? `0${days}` : days;
           structure.days.word.textContent = word(days, "days");
 
-          structure.hours.amount.textContent = config.zeroPad && hours < 10 ? `0${hours}` : hours;
+          structure.hours.amount.textContent =
+            config.zeroPad && hours < 10 ? `0${hours}` : hours;
           structure.hours.word.textContent = word(hours, "hours");
 
-          structure.minutes.amount.textContent = config.zeroPad && minutes < 10 ? `0${minutes}` : minutes;
+          structure.minutes.amount.textContent =
+            config.zeroPad && minutes < 10 ? `0${minutes}` : minutes;
           structure.minutes.word.textContent = word(minutes, "minutes");
 
-          structure.seconds.amount.textContent = config.zeroPad && seconds < 10 ? `0${seconds}` : seconds;
+          structure.seconds.amount.textContent =
+            config.zeroPad && seconds < 10 ? `0${seconds}` : seconds;
           structure.seconds.word.textContent = word(seconds, "seconds");
         }
       };

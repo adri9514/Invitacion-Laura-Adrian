@@ -3,6 +3,7 @@
   --pink: #f14e95;
   --bg: #0a0a0a;
   --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+  --navy: #143d7d;
 }
 
 body {
@@ -29,6 +30,9 @@ body {
 .hero {
   position: relative;
   min-height: 100vh;
+  background-image: url(img/bg-preview.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .hero h1,
@@ -47,17 +51,18 @@ body {
 }
 
 .hero p {
+  color: var(--navy);
   font-size: 1.4rem;
 }
 
 .hero a {
-  color: var(--pink);
+  color: var(--navy);
   background-color: white;
   box-shadow: var(--shadow);
 }
 
 .hero a:hover {
-  background-color: var(--pink);
+  background-color: var(--navy);
   color: white;
 }
 
@@ -85,10 +90,10 @@ body {
 .home {
   background-image: url(img/bg.png);
   background-size: cover;
-  min-height: 100vh;
-  margin-top: -6rem;
-  padding-top: 15rem;
-  padding-bottom: 5rem;
+  min-height: auto;
+  margin-top: -4rem;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
 }
 
 .home h2,
@@ -97,9 +102,9 @@ body {
 .gallery h2,
 .rsvp h2,
 .gifts h2 {
-  color: var(--pink);
+  color: var(--navy);
   font-family: "Sacramento";
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
 }
@@ -275,6 +280,10 @@ body {
   background-color: #fff;
 }
 
+.timeline-panel h3 {
+  color: var(--navy);
+}
+
 .timeline li .timeline-panel::before {
   content: "";
   display: inline-block;
@@ -318,11 +327,26 @@ body {
 }
 
 .gallery {
-  background-color: #f5f5f5;
+  background-color: #e3e3e3;
+}
+
+.gifts {
+  background-color: #e3e3e3;
 }
 
 .rsvp {
-  background-color: var(--bg);
+  background-color: white;
+  color: #111;
+}
+
+.rsvp p,
+.rsvp label,
+.rsvp a div {
+  color: #111 !important;
+}
+
+.rsvp a {
+  color: var(--pink);
 }
 
 .rsvp h2 {
@@ -352,12 +376,12 @@ body {
 
 footer {
   padding: 3rem;
-  background-color: var(--pink);
+  background-color: var(--bg);
   color: white;
 }
 
 footer a {
-  color: var(--bg);
+  color: var(--white);
   font-weight: bold;
   text-decoration: none;
 }
@@ -387,6 +411,13 @@ footer li {
 .hero main .btn {
   padding: 1rem 2.5rem;
   font-size: 1.2rem;
+}
+
+.fuente-parisienne {
+  font-family: "Parisienne", cursive !important;
+  font-size: 5rem;
+  color: var(--navy);
+  text-shadow: 1.6px 1.6px var(--navy);
 }
 
 /* Responsive */
@@ -532,4 +563,9 @@ footer li {
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
   }
+}
+
+.simply-countdown > .simply-section {
+  background-color: var(--navy) !important;
+  color: white !important;
 }
