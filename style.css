@@ -512,37 +512,32 @@ footer li {
 }
 
 @media (max-width: 576px) {
-  .simply-countdown {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    justify-content: center;
-    align-items: center;
-    max-width: 200px;
-    margin: 0 auto;
-  }
-
   .simply-countdown > .simply-section {
-    width: 75px;
-    height: 75px;
+    padding: 30px;
+    margin: 3px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    background-color: var(--navy);
-    color: white;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0;
   }
 
+  .simply-countdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* espacio entre círculos */
+}
+
   .simply-countdown .simply-amount {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .simply-countdown .simply-word {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
-}
 
   .simply-countdown > .simply-section {
     padding: 45px;
@@ -594,6 +589,7 @@ footer li {
     transition: transform 0.3s ease-in-out;
     cursor: pointer;
   }
+}
 
 .simply-countdown > .simply-section {
   background-color: var(--navy) !important;
