@@ -513,12 +513,12 @@ footer li {
 
 @media (max-width: 576px) {
   .simply-countdown > .simply-section {
-    padding: 30px;
-    margin: 3px;
-    width: 70px;
-    height: 70px;
+    width: 45%;
+    aspect-ratio: 1;         
+    padding: 20px;
+    margin: 5px;
     border-radius: 50%;
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
