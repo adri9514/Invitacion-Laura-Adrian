@@ -666,4 +666,10 @@ footer li {
   align-items: center;
   font-size: clamp(0.8rem, 2.5vw, 1.4rem);
 }
+
+/* Bloqueo de scroll inicial */
+.scroll-lock {
+  overflow: hidden;
+  height: 100vh;
+}
 }

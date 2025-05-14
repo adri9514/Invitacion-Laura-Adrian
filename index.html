@@ -87,6 +87,23 @@
   });
 </script>
 
+<script>
+  function enableScroll() {
+    document.body.classList.remove("scroll-lock");
+
+    // Hacer scroll animado a la sección #home (por si el href no lo hace suavemente)
+    const homeSection = document.getElementById("home");
+    if (homeSection) {
+      homeSection.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  // Añade scroll-lock al cargar la página
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("scroll-lock");
+  });
+</script>
+
 <body>
   <section id="hero"
     class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
@@ -370,8 +387,6 @@
         <!-- Columna derecha: Derechos -->
         <div class="col-md-6 d-flex flex-column align-items-end justify-content-center text-end">
           <small class="block me-2">&copy; 2025 Adrián Expósito. <br /> Todos los derechos reservados. <br /> </small>
-          <small class="block me-2">Diseñado por <a href="https://github.com/adri9514"
-              target="_blank">@adri9514</a>.</small>
         </div>
       </div>
     </div>
