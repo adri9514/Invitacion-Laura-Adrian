@@ -88,20 +88,22 @@
 </script>
 
 <script>
-  function enableScroll() {
-    document.body.classList.remove("scroll-lock");
-
-    // Hacer scroll animado a la sección #home (por si el href no lo hace suavemente)
-    const homeSection = document.getElementById("home");
-    if (homeSection) {
-      homeSection.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-
-  // Añade scroll-lock al cargar la página
+  // Bloquea el scroll al cargar
   document.addEventListener("DOMContentLoaded", function () {
+    document.documentElement.classList.add("scroll-lock");
     document.body.classList.add("scroll-lock");
   });
+
+  function enableScroll() {
+    document.documentElement.classList.remove("scroll-lock");
+    document.body.classList.remove("scroll-lock");
+
+    // Scroll animado a la sección de inicio
+    const home = document.getElementById("home");
+    if (home) {
+      home.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 </script>
 
 <body>
