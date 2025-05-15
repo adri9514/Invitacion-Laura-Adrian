@@ -4,6 +4,7 @@
   --bg: #0a0a0a;
   --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
   --navy: #143d7d;
+  --blue: #FFF6E4;
 }
 
 body {
@@ -155,8 +156,8 @@ body {
 }
 
 .info {
-  background-color: var(--bg);
-  color: white;
+  background-color: var(--blue);
+  color: black;
   padding-top: 10rem;
   padding-bottom: 8rem;
 }
@@ -335,7 +336,7 @@ body {
 }
 
 .rsvp {
-  background-color: #e3e3e3;
+  background-color: var(--blue);
   color: #111;
 }
 
@@ -346,7 +347,7 @@ body {
 }
 
 .rsvp a {
-  color: var(--pink);
+  color: var(--blue);
 }
 
 .rsvp h2 {
