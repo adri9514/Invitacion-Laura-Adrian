@@ -82,23 +82,31 @@
 </script>
 
 <script>
+function enableScroll() {
+  document.documentElement.classList.remove("scroll-lock");
+  document.body.classList.remove("scroll-lock");
+  sessionStorage.setItem("scrollHabilitado", "true");
+
+  // Mostrar la navbar
+  const navbar = document.querySelector(".mynavbar");
+  if (navbar) {
+    navbar.classList.remove("d-none");
+  }
+
+  const home = document.getElementById("home");
+  if (home) {
+    home.scrollIntoView({ behavior: "smooth" });
+  }
+}
+</script>
+
+<script>
   document.addEventListener("DOMContentLoaded", function () {
     if (!sessionStorage.getItem("scrollHabilitado")) {
       document.documentElement.classList.add("scroll-lock");
       document.body.classList.add("scroll-lock");
     }
   });
-
-  function enableScroll() {
-    document.documentElement.classList.remove("scroll-lock");
-    document.body.classList.remove("scroll-lock");
-    sessionStorage.setItem("scrollHabilitado", "true");
-
-    const home = document.getElementById("home");
-    if (home) {
-      home.scrollIntoView({ behavior: "smooth" });
-    }
-  }
 </script>
 
 <body>
@@ -112,7 +120,7 @@
     </main>
   </section>
 
-  <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar">
+<nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar d-none">
     <div class="container">
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-label="Menú">
