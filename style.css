@@ -696,3 +696,10 @@ body.scroll-lock {
     max-width: 200px;
   }
 }
+
+@media (max-width: 576px) {
+  .gallery-tira {
+    max-width: 90%;
+    width: 300px;
+  }
+}
