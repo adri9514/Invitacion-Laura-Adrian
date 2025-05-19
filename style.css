@@ -700,6 +700,7 @@ body.scroll-lock {
 @media (max-width: 576px) {
   .gallery-tira {
     width: 90vw;
-    max-width: 600px;
+    max-width: 500px;
+    margin-bottom: 2rem;
   }
 }
