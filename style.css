@@ -674,3 +674,21 @@ body.scroll-lock {
   overflow: hidden !important;
   position: relative;
 }
+
+@media (max-width: 768px) {
+  .gallery .row {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .galeria-tira {
+    max-width: 80%;
+    margin: 1rem auto;
+  }
+
+  .gallery h2 {
+    margin-top: 1rem;
+  }
+}

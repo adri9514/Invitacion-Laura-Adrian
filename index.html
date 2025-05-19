@@ -286,27 +286,32 @@ function enableScroll() {
   </section>
 
   <!-- Galería -->
-  <section id="gallery" class="gallery">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-8 col-10 text-center">
-          <h2>Galería</h2>
+<section id="gallery" class="gallery">
+  <div class="container">
+    <div class="row align-items-center flex-column flex-md-row text-center">
+      <!-- Tira izquierda (visible en todos los tamaños) -->
+      <div class="col-auto order-1 order-md-1">
+        <img src="img/tira-izquierda.png" alt="Decoración izquierda" class="img-fluid galeria-tira" />
+      </div>
 
-          <!-- Botón arriba del todo -->
-          <a href="https://drive.google.com/drive/folders/12gjlnrf7P-SSk76IuN3AHqgeAA1Si9W-" target="_blank"
-            class="btn btn-light my-3">
-            Pulsa aquí para ver y subir tus fotos del gran día
-          </a>
+      <!-- Contenido central -->
+      <div class="col order-2 order-md-2">
+        <h2>Galería</h2>
+        <a href="https://drive.google.com/drive/folders/12gjlnrf7P-SSk76IuN3AHqgeAA1Si9W-" target="_blank"
+          class="btn btn-light my-3">
+          Pulsa aquí para ver y subir tus fotos del gran día
+        </a>
+        <p>Si lo prefieres, también puedes escanear este QR:</p>
+        <img src="img/qr-fotos.png" alt="Código QR para subir fotos" class="img-thumbnail my-3" width="200" />
+      </div>
 
-          <!-- Texto explicativo -->
-          <p>Si lo prefieres, también puedes escanear este QR:</p>
-
-          <!-- Imagen QR -->
-          <img src="img/qr-fotos.png" alt="Código QR para subir fotos" class="img-thumbnail my-3" width="200" />
-        </div>
+      <!-- Tira derecha (visible en todos los tamaños) -->
+      <div class="col-auto order-3 order-md-3">
+        <img src="img/tira-derecha.png" alt="Decoración derecha" class="img-fluid galeria-tira" />
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Modal con el formulario -->
   <div class="modal fade" id="asistenciaModal" tabindex="-1" aria-labelledby="asistenciaModalLabel" aria-hidden="true">
