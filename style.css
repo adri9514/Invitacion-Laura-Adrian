@@ -675,20 +675,24 @@ body.scroll-lock {
   position: relative;
 }
 
-@media (max-width: 768px) {
-  .gallery .row {
-    display: flex;
-    flex-direction: column !important;
-    align-items: center;
-    text-align: center;
+.gallery-tira {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+@media (max-width: 576px) {
+  .gallery .row .col-6 {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
-  .galeria-tira {
-    max-width: 80%;
-    margin: 1rem auto;
+  .gallery .btn {
+    font-size: 1rem;
+    padding: 0.8rem 1.4rem;
   }
 
-  .gallery h2 {
-    margin-top: 1rem;
+  .gallery img.img-thumbnail {
+    max-width: 200px;
   }
 }
