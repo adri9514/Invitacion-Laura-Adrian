@@ -705,3 +705,9 @@ body.scroll-lock {
     margin-bottom: 2rem;
   }
 }
+
+@media (max-width: 576px) {
+  #gallery h2 {
+    font-size: 3.2rem !important;
+  }
+}
