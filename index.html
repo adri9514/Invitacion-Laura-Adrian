@@ -82,22 +82,22 @@
 </script>
 
 <script>
-function enableScroll() {
-  document.documentElement.classList.remove("scroll-lock");
-  document.body.classList.remove("scroll-lock");
-  sessionStorage.setItem("scrollHabilitado", "true");
+  function enableScroll() {
+    document.documentElement.classList.remove("scroll-lock");
+    document.body.classList.remove("scroll-lock");
+    sessionStorage.setItem("scrollHabilitado", "true");
 
-  // Mostrar la navbar
-  const navbar = document.querySelector(".mynavbar");
-  if (navbar) {
-    navbar.classList.remove("d-none");
-  }
+    // Mostrar la navbar
+    const navbar = document.querySelector(".mynavbar");
+    if (navbar) {
+      navbar.classList.remove("d-none");
+    }
 
-  const home = document.getElementById("home");
-  if (home) {
-    home.scrollIntoView({ behavior: "smooth" });
+    const home = document.getElementById("home");
+    if (home) {
+      home.scrollIntoView({ behavior: "smooth" });
+    }
   }
-}
 </script>
 
 <script>
@@ -120,7 +120,7 @@ function enableScroll() {
     </main>
   </section>
 
-<nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar d-none">
+  <nav class="navbar navbar-expand-md bg-transparent sticky-top mynavbar d-none">
     <div class="container">
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
         aria-label="Menú">
@@ -286,32 +286,32 @@ function enableScroll() {
   </section>
 
   <!-- Galería -->
-<section id="gallery" class="gallery">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-6 text-center">
-        <h2>Galería</h2>
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-6 text-center">
+          <h2>Galería</h2>
 
-        <!-- Botón -->
-        <a href="https://drive.google.com/drive/folders/12gjlnrf7P-SSk76IuN3AHqgeAA1Si9W-" target="_blank"
-          class="btn btn-light my-3">
-          Pulsa aquí para ver y subir tus fotos del gran día
-        </a>
+          <!-- Botón -->
+          <a href="https://drive.google.com/..." target="_blank" class="btn btn-light my-3 btn-galeria">
+            Pulsa aquí para ver y subir tus fotos del gran día
+          </a>
 
-        <!-- Texto -->
-        <p>Si lo prefieres, también puedes escanear este QR:</p>
 
-        <!-- QR -->
-        <img src="img/qr-fotos.png" alt="Código QR para subir fotos" class="img-thumbnail my-3" width="200" />
+          <!-- Texto -->
+          <p>Si lo prefieres, también puedes escanear este QR:</p>
 
-                <!-- Única tira decorativa (centrada) -->
-        <div class="my-3">
-          <img src="img/tiras.png" alt="Decoración" class="img-fluid gallery-tira" />
+          <!-- QR -->
+          <img src="img/qr-fotos.png" alt="Código QR para subir fotos" class="img-thumbnail my-3" width="200" />
+
+          <!-- Única tira decorativa (centrada) -->
+          <div class="my-3">
+            <img src="img/tiras.png" alt="Decoración" class="img-fluid gallery-tira" />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
 
@@ -352,7 +352,8 @@ function enableScroll() {
             <div id="adultosContainer"></div>
 
             <div class="mb-3">
-              <label for="comentario" class="form-label">¿Algún comentario, duda o mensaje bonito para los novios?</label>
+              <label for="comentario" class="form-label">¿Algún comentario, duda o mensaje bonito para los
+                novios?</label>
               <textarea class="form-control" id="comentario" name="comentario"
                 placeholder="Cuéntanos lo que quieras, ¡te leemos!"></textarea>
             </div>

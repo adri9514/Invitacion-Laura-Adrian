@@ -712,3 +712,11 @@ body.scroll-lock {
   }
 }
 
+#gallery {
+  padding-top: 10rem;
+}
+
+.btn-galeria {
+  font-size: 1.1rem;
+  padding: 0.8rem 1.6rem;
+}
