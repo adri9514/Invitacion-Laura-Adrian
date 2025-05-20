@@ -720,3 +720,10 @@ body.scroll-lock {
   font-size: 1.1rem;
   padding: 0.8rem 1.6rem;
 }
+
+@media (max-width: 576px) {
+  .btn-galeria {
+    font-size: 1.2rem !important;
+    padding: 1rem 2rem !important;
+  }
+}
