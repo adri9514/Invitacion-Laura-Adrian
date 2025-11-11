@@ -72,7 +72,7 @@ function _typeof(t) {
 
     const config = mergeOptions(
       {
-        year: 2025,
+        year: 2026,
         month: 10,
         day: 11,
         hours: 13,
